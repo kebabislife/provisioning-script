@@ -28,9 +28,6 @@ wget https://civitai.com/api/download/models/1413730?token=$CIVITAI_TOKEN --cont
 wget https://civitai.com/api/download/models/1410435?token=$CIVITAI_TOKEN --content-disposition # WAI-NSFW-illustrious-SDXL v11.0
 wget https://civitai.com/api/download/models/1404800?token=$CIVITAI_TOKEN --content-disposition # Hesperides v1.0
 
-cd $UPSCALE_MODELS_DIR
-wget https://huggingface.co/uwg/upscaler/resolve/main/ESRGAN/4x_NMKD-YandereNeoXL_200k.pth --content-disposition
-
 cd $CUSTOM_NODES_DIR
 git clone https://github.com/Fannovel16/comfyui_controlnet_aux.git
 cd comfyui_controlnet_aux
@@ -43,6 +40,7 @@ cd $CLIP_VISION_DIR
 wget https://huggingface.co/h94/IP-Adapter/resolve/main/models/image_encoder/model.safetensors -O clip-vision_vit-h.safetensors --content-disposition
 
 cd $UPSCALE_MODELS_DIR
+wget https://huggingface.co/uwg/upscaler/resolve/main/ESRGAN/4x_NMKD-YandereNeoXL_200k.pth --content-disposition
 wget https://huggingface.co/gemasai/4x_NMKD-Superscale-SP_178000_G/resolve/main/4x_NMKD-Superscale-SP_178000_G.pth -O 4x_NMKD-Superscale-SP_178000_G.pth --content-disposition
 wget https://huggingface.co/Acly/Omni-SR/resolve/main/OmniSR_X2_DIV2K.safetensors -O OmniSR_X2_DIV2K.safetensors --content-disposition
 wget https://huggingface.co/Acly/Omni-SR/resolve/main/OmniSR_X3_DIV2K.safetensors -O OmniSR_X3_DIV2K.safetensors --content-disposition
