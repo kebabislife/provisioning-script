@@ -20,6 +20,7 @@ pip uninstall -y torch torchvision torchaudio pyaudio
 
 # Install nightly builds of torch, torchvision, and torchaudio with CUDA 12.8 support
 pip install --pre torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/nightly/cu128
+pip install opencv-python
 
 cd $CHECKPOINTS_DIR
 wget https://civitai.com/api/download/models/1411338?token=$CIVITAI_TOKEN --content-disposition # Illustrious XL Cyberfix
@@ -58,6 +59,7 @@ wget https://huggingface.co/lllyasviel/fooocus_inpaint/resolve/main/fooocus_inpa
 wget https://huggingface.co/lllyasviel/fooocus_inpaint/resolve/main/inpaint_v26.fooocus.patch -O inpaint_v26.fooocus.patch --content-disposition
 wget https://huggingface.co/Acly/MAT/resolve/main/MAT_Places512_G_fp16.safetensors -O MAT_Places512_G_fp16.safetensors --content-disposition
 
-cd $COMFYUI_DIR
-
+cd $CUSTOM_NODES_DIR
+git clone https://github.com/Acly/comfyui-tooling-nodes.git
+git clone https://github.com/Acly/comfyui-inpaint-nodes.git
 
