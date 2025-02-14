@@ -35,10 +35,10 @@ WORKFLOWS=(
 
 CHECKPOINT_MODELS=(
     #"https://civitai.com/api/download/models/798204?type=Model&format=SafeTensor&size=full&fp=fp16"
-    https://civitai.com/api/download/models/1411338 # Illustrious XL Cyberfix
-    https://civitai.com/api/download/models/1413730 # Animagine XL 4.0 opt-perp cyberfix v2
-    https://civitai.com/api/download/models/1410435 # WAI-NSFW-illustrious-SDXL v11.0
-    https://civitai.com/api/download/models/1404800 # Hesperides v1.0
+    "https://civitai.com/api/download/models/1411338?type=Model&format=SafeTensor&size=full&fp=fp16" # Illustrious XL Cyberfix
+    "https://civitai.com/api/download/models/1413730?type=Model&format=SafeTensor&size=full&fp=fp16" # Animagine XL 4.0 opt-perp cyberfix v2
+    "https://civitai.com/api/download/models/1410435?type=Model&format=SafeTensor&size=full&fp=fp16" # WAI-NSFW-illustrious-SDXL v11.0
+    "https://civitai.com/api/download/models/1404800?type=Model&format=SafeTensor&size=full&fp=fp16" # Hesperides v1.0
 )
 
 UNET_MODELS=(
