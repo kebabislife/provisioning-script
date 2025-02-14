@@ -53,6 +53,7 @@ wget https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/ip-adapter_s
 
 cd $LORAS_DIR
 wget https://huggingface.co/ByteDance/Hyper-SD/resolve/main/Hyper-SDXL-8steps-CFG-lora.safetensors -O Hyper-SDXL-8steps-CFG-lora.safetensors --content-disposition
+wget https://huggingface.co/ByteDance/Hyper-SD/resolve/main/Hyper-SDXL-8steps-lora.safetensors --content-disposition
 
 cd $INPAINT_DIR
 wget https://huggingface.co/lllyasviel/fooocus_inpaint/resolve/main/fooocus_inpaint_head.pth -O fooocus_inpaint_head.pth --content-disposition
