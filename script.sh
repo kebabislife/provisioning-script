@@ -4,7 +4,7 @@ source /venv/main/bin/activate
 COMFYUI_DIR=${WORKSPACE}/ComfyUI/
 CHECKPOINTS_DIR=${WORKSPACE}/ComfyUI/models/checkpoints
 UPSCALE_MODELS_DIR=${WORKSPACE}/ComfyUI/models/upscale_models
-CUSTOM_NODES_DIR=${WORKSPACE}/ComfyUI/models/custom_nodes
+CUSTOM_NODES_DIR=${WORKSPACE}/ComfyUI/custom_nodes
 CLIP_VISION_DIR=${WORKSPACE}/ComfyUI/models/clip_vision
 INPAINT_DIR=${WORKSPACE}/ComfyUI/models/inpaint
 IPADAPTER_DIR=${WORKSPACE}/ComfyUI/models/ipadapter
