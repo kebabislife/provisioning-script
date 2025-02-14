@@ -3,6 +3,12 @@
 source /venv/main/bin/activate
 COMFYUI_DIR=${WORKSPACE}/ComfyUI
 
+# Uninstall existing packages
+pip uninstall -y torch torchvision torchaudio pyaudio
+
+# Install nightly builds of torch, torchvision, and torchaudio with CUDA 12.8 support
+pip install --pre torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/nightly/cu128
+
 # Packages are installed after nodes so we can fix them...
 
 APT_PACKAGES=(
