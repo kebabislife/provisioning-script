@@ -3,12 +3,12 @@
 source /venv/main/bin/activate
 COMFYUI_DIR=${WORKSPACE}/ComfyUI/
 CHECKPOINTS_DIR=${WORKSPACE}/ComfyUI/models/checkpoints
-UPSCALE_MODELS_DIR=${WORKSPACE}/ComfyUI/models/models/upscale_models
-CUSTOM_NODES_DIR=${WORKSPACE}/ComfyUI/models/models/upscale_models
-CLIP_VISION_DIR=${WORKSPACE}/ComfyUI/models/models/clip_vision
-INPAINT_DIR=${WORKSPACE}/ComfyUI/models/models/inpaint
-IPADAPTER_DIR=${WORKSPACE}/ComfyUI/models/models/ipadapter
-LORAS_DIR=${WORKSPACE}/ComfyUI/models/models/loras
+UPSCALE_MODELS_DIR=${WORKSPACE}/ComfyUI/models/upscale_models
+CUSTOM_NODES_DIR=${WORKSPACE}/ComfyUI/models/custom_nodes
+CLIP_VISION_DIR=${WORKSPACE}/ComfyUI/models/clip_vision
+INPAINT_DIR=${WORKSPACE}/ComfyUI/models/inpaint
+IPADAPTER_DIR=${WORKSPACE}/ComfyUI/models/ipadapter
+LORAS_DIR=${WORKSPACE}/ComfyUI/models/loras
 
 cd $COMFYUI_DIR
 
