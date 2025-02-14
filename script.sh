@@ -3,6 +3,9 @@
 source /venv/main/bin/activate
 COMFYUI_DIR=${WORKSPACE}/ComfyUI
 
+echo CIVITAI_TOKEN:
+echo $CIVITAI_TOKEN
+
 # Uninstall existing packages
 pip uninstall -y torch torchvision torchaudio pyaudio
 
