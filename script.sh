@@ -23,12 +23,14 @@ pip install --pre torch torchvision torchaudio --extra-index-url https://downloa
 pip install opencv-python
 
 cd $CHECKPOINTS_DIR
-wget https://civitai.com/api/download/models/1411338?token=$CIVITAI_TOKEN --content-disposition # Illustrious XL Cyberfix
-wget https://civitai.com/api/download/models/1413730?token=$CIVITAI_TOKEN --content-disposition # Animagine XL 4.0 opt-perp cyberfix v2
-wget https://civitai.com/api/download/models/1410435?token=$CIVITAI_TOKEN --content-disposition # WAI-NSFW-illustrious-SDXL v11.0
+# wget https://civitai.com/api/download/models/1411338?token=$CIVITAI_TOKEN --content-disposition # Illustrious XL Cyberfix
+# wget https://civitai.com/api/download/models/1413730?token=$CIVITAI_TOKEN --content-disposition # Animagine XL 4.0 opt-perp cyberfix v2
+# wget https://civitai.com/api/download/models/1410435?token=$CIVITAI_TOKEN --content-disposition # WAI-NSFW-illustrious-SDXL v11.0
 wget https://civitai.com/api/download/models/1404800?token=$CIVITAI_TOKEN --content-disposition # Hesperides v1.0
 
 cd $CUSTOM_NODES_DIR
+git clone https://github.com/Acly/comfyui-tooling-nodes.git
+git clone https://github.com/Acly/comfyui-inpaint-nodes.git
 git clone https://github.com/Fannovel16/comfyui_controlnet_aux.git
 cd comfyui_controlnet_aux
 pip install -r requirements.txt
@@ -46,6 +48,7 @@ wget https://huggingface.co/Acly/Omni-SR/resolve/main/OmniSR_X2_DIV2K.safetensor
 wget https://huggingface.co/Acly/Omni-SR/resolve/main/OmniSR_X3_DIV2K.safetensors -O OmniSR_X3_DIV2K.safetensors --content-disposition
 wget https://huggingface.co/Acly/Omni-SR/resolve/main/OmniSR_X4_DIV2K.safetensors -O OmniSR_X4_DIV2K.safetensors --content-disposition
 
+mkdir -p $IPADAPTER_DIR
 cd $IPADAPTER_DIR
 wget https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/ip-adapter_sdxl_vit-h.safetensors -O ip-adapter_sdxl_vit-h.safetensors --content-disposition
 
@@ -53,12 +56,9 @@ cd $LORAS_DIR
 wget https://huggingface.co/ByteDance/Hyper-SD/resolve/main/Hyper-SDXL-8steps-CFG-lora.safetensors -O Hyper-SDXL-8steps-CFG-lora.safetensors --content-disposition
 wget https://huggingface.co/ByteDance/Hyper-SD/resolve/main/Hyper-SDXL-8steps-lora.safetensors --content-disposition
 
+mkdir -p $INPAINT_DIR
 cd $INPAINT_DIR
 wget https://huggingface.co/lllyasviel/fooocus_inpaint/resolve/main/fooocus_inpaint_head.pth -O fooocus_inpaint_head.pth --content-disposition
 wget https://huggingface.co/lllyasviel/fooocus_inpaint/resolve/main/inpaint_v26.fooocus.patch -O inpaint_v26.fooocus.patch --content-disposition
 wget https://huggingface.co/Acly/MAT/resolve/main/MAT_Places512_G_fp16.safetensors -O MAT_Places512_G_fp16.safetensors --content-disposition
-
-cd $CUSTOM_NODES_DIR
-git clone https://github.com/Acly/comfyui-tooling-nodes.git
-git clone https://github.com/Acly/comfyui-inpaint-nodes.git
 
