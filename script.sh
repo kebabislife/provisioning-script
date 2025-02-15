@@ -98,4 +98,7 @@ fetch_file "https://huggingface.co/lllyasviel/fooocus_inpaint/resolve/main/foooc
 fetch_file "https://huggingface.co/lllyasviel/fooocus_inpaint/resolve/main/inpaint_v26.fooocus.patch" "$INPAINT_DIR" "inpaint_v26.fooocus.patch"
 fetch_file "https://huggingface.co/Acly/MAT/resolve/main/MAT_Places512_G_fp16.safetensors" "$INPAINT_DIR" "MAT_Places512_G_fp16.safetensors"
 
+cd $COMFYUI_DIR
+git pull
+
 echo "Setup completed successfully!"
