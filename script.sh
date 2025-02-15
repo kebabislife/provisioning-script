@@ -2,6 +2,8 @@
 
 set -e  # Exit immediately if a command exits with a non-zero status.
 
+echo "Starting provisioning script..."
+
 # Activate virtual environment
 source /venv/main/bin/activate
 
