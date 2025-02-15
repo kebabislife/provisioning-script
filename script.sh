@@ -77,25 +77,25 @@ clone_repo "https://github.com/Fannovel16/comfyui_controlnet_aux.git" "$CUSTOM_N
 cd "$CUSTOM_NODES_DIR/comfyui_controlnet_aux" && pip install -r requirements.txt
 
 # Download additional models
-fetch_file "$CLIP_VISION" "$CLIP_VISION_DIR" "clip-vision_vit-h.safetensors"
+fetch_file "https://huggingface.co/h94/IP-Adapter/resolve/main/models/image_encoder/model.safetensors" "$CLIP_VISION_DIR" "clip-vision_vit-h.safetensors"
 
 # Download upscaling models
-fetch_file "$UPSCALE_1" "$UPSCALE_MODELS_DIR" "4x_NMKD-YandereNeoXL_200k.pth"
-fetch_file "$UPSCALE_2" "$UPSCALE_MODELS_DIR" "4x_NMKD-Superscale-SP_178000_G.pth"
-fetch_file "$UPSCALE_3" "$UPSCALE_MODELS_DIR" "OmniSR_X2_DIV2K.safetensors"
-fetch_file "$UPSCALE_4" "$UPSCALE_MODELS_DIR" "OmniSR_X3_DIV2K.safetensors"
-fetch_file "$UPSCALE_5" "$UPSCALE_MODELS_DIR" "OmniSR_X4_DIV2K.safetensors"
+fetch_file "https://huggingface.co/uwg/upscaler/resolve/main/ESRGAN/4x_NMKD-YandereNeoXL_200k.pth" "$UPSCALE_MODELS_DIR" "4x_NMKD-YandereNeoXL_200k.pth"
+fetch_file "https://huggingface.co/gemasai/4x_NMKD-Superscale-SP_178000_G/resolve/main/4x_NMKD-Superscale-SP_178000_G.pth" "$UPSCALE_MODELS_DIR" "4x_NMKD-Superscale-SP_178000_G.pth"
+fetch_file "https://huggingface.co/Acly/Omni-SR/resolve/main/OmniSR_X2_DIV2K.safetensors" "$UPSCALE_MODELS_DIR" "OmniSR_X2_DIV2K.safetensors"
+fetch_file "https://huggingface.co/Acly/Omni-SR/resolve/main/OmniSR_X3_DIV2K.safetensors" "$UPSCALE_MODELS_DIR" "OmniSR_X3_DIV2K.safetensors"
+fetch_file "https://huggingface.co/Acly/Omni-SR/resolve/main/OmniSR_X4_DIV2K.safetensors" "$UPSCALE_MODELS_DIR" "OmniSR_X4_DIV2K.safetensors"
 
 # Download IPAdapter models
-fetch_file "$IPADAPTER" "$IPADAPTER_DIR" "ip-adapter_sdxl_vit-h.safetensors"
+fetch_file "https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/ip-adapter_sdxl_vit-h.safetensors" "$IPADAPTER_DIR" "ip-adapter_sdxl_vit-h.safetensors"
 
 # Download LORA models
-fetch_file "$LORA_1" "$LORAS_DIR" "Hyper-SDXL-8steps-CFG-lora.safetensors"
-fetch_file "$LORA_2" "$LORAS_DIR" "Hyper-SDXL-8steps-lora.safetensors"
+fetch_file "https://huggingface.co/ByteDance/Hyper-SD/resolve/main/Hyper-SDXL-8steps-CFG-lora.safetensors" "$LORAS_DIR" "Hyper-SDXL-8steps-CFG-lora.safetensors"
+fetch_file "https://huggingface.co/ByteDance/Hyper-SD/resolve/main/Hyper-SDXL-8steps-lora.safetensors" "$LORAS_DIR" "Hyper-SDXL-8steps-lora.safetensors"
 
 # Download Inpaint models
-fetch_file "$INPAINT_1" "$INPAINT_DIR" "fooocus_inpaint_head.pth"
-fetch_file "$INPAINT_2" "$INPAINT_DIR" "inpaint_v26.fooocus.patch"
-fetch_file "$INPAINT_3" "$INPAINT_DIR" "MAT_Places512_G_fp16.safetensors"
+fetch_file "https://huggingface.co/lllyasviel/fooocus_inpaint/resolve/main/fooocus_inpaint_head.pth" "$INPAINT_DIR" "fooocus_inpaint_head.pth"
+fetch_file "https://huggingface.co/lllyasviel/fooocus_inpaint/resolve/main/inpaint_v26.fooocus.patch" "$INPAINT_DIR" "inpaint_v26.fooocus.patch"
+fetch_file "https://huggingface.co/Acly/MAT/resolve/main/MAT_Places512_G_fp16.safetensors" "$INPAINT_DIR" "MAT_Places512_G_fp16.safetensors"
 
 echo "Setup completed successfully!"
