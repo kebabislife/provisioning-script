@@ -27,7 +27,7 @@ mkdir -p "$CHECKPOINTS_DIR" "$UPSCALE_MODELS_DIR" "$CLIP_VISION_DIR" \
 # Function to install packages
 install_packages() {
     pip uninstall -y torch torchvision torchaudio
-    pip install pip install --pre torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/nightly/cu128
+    pip install --pre torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/nightly/cu128
     pip install opencv-python
 }
 
