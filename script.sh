@@ -52,6 +52,7 @@ clone_repo() {
     mkdir -p "$dest_dir"
     cd "$dest_dir"
     git clone "$repo_url" || echo "Repository $repo_url already exists"
+    echo "Cloned $repo_url"!
 }
 
 # Install necessary packages
@@ -65,9 +66,11 @@ for var in $(printenv | grep '^CHECKPOINT_URL_' | awk -F= '{print $1}'); do
     filename_var="CHECKPOINT_FILENAME_$index"
     filename=${!filename_var:-$(basename "$url")}
     fetch_file "$url" "$CHECKPOINTS_DIR" "$filename"
+    echo "Downloaded $filename"!
 done
 
 # Clone custom nodes repositories
+echo "Cloning repos..."
 clone_repo "https://github.com/Acly/comfyui-tooling-nodes.git" "$CUSTOM_NODES_DIR"
 clone_repo "https://github.com/Acly/comfyui-inpaint-nodes.git" "$CUSTOM_NODES_DIR"
 clone_repo "https://github.com/cubiq/ComfyUI_IPAdapter_plus.git" "$CUSTOM_NODES_DIR"
@@ -77,6 +80,7 @@ clone_repo "https://github.com/chengzeyi/Comfy-WaveSpeed.git" "$CUSTOM_NODES_DIR
 # Install requirements for controlnet_aux
 cd "$CUSTOM_NODES_DIR/comfyui_controlnet_aux" && pip install -r requirements.txt
 
+echo "Downloading models..."
 # Download additional models
 fetch_file "https://huggingface.co/h94/IP-Adapter/resolve/main/models/image_encoder/model.safetensors" "$CLIP_VISION_DIR" "clip-vision_vit-h.safetensors"
 
