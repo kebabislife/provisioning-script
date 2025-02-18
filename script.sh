@@ -76,6 +76,25 @@ clone_repo "https://github.com/Acly/comfyui-inpaint-nodes.git" "$CUSTOM_NODES_DI
 clone_repo "https://github.com/cubiq/ComfyUI_IPAdapter_plus.git" "$CUSTOM_NODES_DIR"
 clone_repo "https://github.com/Fannovel16/comfyui_controlnet_aux.git" "$CUSTOM_NODES_DIR"
 clone_repo "https://github.com/chengzeyi/Comfy-WaveSpeed.git" "$CUSTOM_NODES_DIR"
+clone_repo "https://github.com/pythongosssss/ComfyUI-Custom-Scripts.git" "$CUSTOM_NODES_DIR"
+clone_repo "https://github.com/rgthree/rgthree-comfy.git" "$CUSTOM_NODES_DIR"
+clone_repo "https://github.com/WASasquatch/was-node-suite-comfyui.git" "$CUSTOM_NODES_DIR"
+cd "$CUSTOM_NODES_DIR/was-node-suite-comfyui"
+pip install -r requirements.txt
+clone_repo "https://github.com/yolain/ComfyUI-Easy-Use.git" "$CUSTOM_NODES_DIR"
+cd "$CUSTOM_NODES_DIR/ComfyUI-Easy-Use"
+pip install -r requirements.txt
+clone_repo "https://github.com/jags111/efficiency-nodes-comfyui.git" "$CUSTOM_NODES_DIR"
+clone_repo "https://github.com/sipherxyz/comfyui-art-venture.git" "$CUSTOM_NODES_DIR"
+cd "$CUSTOM_NODES_DIR/comfyui-art-venture"
+pip install -r requirements.txt
+clone_repo "https://github.com/EllangoK/ComfyUI-post-processing-nodes.git" "$CUSTOM_NODES_DIR"
+clone_repo "https://github.com/glifxyz/ComfyUI-GlifNodes.git" "$CUSTOM_NODES_DIR"
+cd "$CUSTOM_NODES_DIR/ComfyUI-GlifNodes"
+pip install -r requirements.txt
+clone_repo "https://github.com/JPS-GER/ComfyUI_JPS-Nodes.git" "$CUSTOM_NODES_DIR"
+clone_repo "https://github.com/KoreTeknology/ComfyUI-Universal-Styler.git" "$CUSTOM_NODES_DIR"
+clone_repo "https://github.com/glowcone/comfyui-string-converter.git" "$CUSTOM_NODES_DIR"
 
 # Install requirements for controlnet_aux
 cd "$CUSTOM_NODES_DIR/comfyui_controlnet_aux" && pip install -r requirements.txt
