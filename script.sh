@@ -95,6 +95,7 @@ pip install -r requirements.txt
 clone_repo "https://github.com/JPS-GER/ComfyUI_JPS-Nodes.git" "$CUSTOM_NODES_DIR"
 clone_repo "https://github.com/KoreTeknology/ComfyUI-Universal-Styler.git" "$CUSTOM_NODES_DIR"
 clone_repo "https://github.com/glowcone/comfyui-string-converter.git" "$CUSTOM_NODES_DIR"
+clone_repo "https://github.com/MythicalChu/ComfyUI-APG_ImYourCFGNow.git" "$CUSTOM_NODES_DIR"
 
 # Install requirements for controlnet_aux
 cd "$CUSTOM_NODES_DIR/comfyui_controlnet_aux" && pip install -r requirements.txt
