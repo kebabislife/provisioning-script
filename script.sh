@@ -19,6 +19,7 @@ CLIP_VISION_DIR=${MODELS_DIR}/clip_vision
 INPAINT_DIR=${MODELS_DIR}/inpaint
 IPADAPTER_DIR=${MODELS_DIR}/ipadapter
 LORAS_DIR=${MODELS_DIR}/loras
+VAE_DIR=${MODELS_DIR}/vae
 
 # Ensure directories exist
 mkdir -p "$CHECKPOINTS_DIR" "$UPSCALE_MODELS_DIR" "$CLIP_VISION_DIR" \
@@ -39,11 +40,20 @@ fetch_file() {
     mkdir -p "$dest_dir"
     cd "$dest_dir"
     if [[ "$url" == *"civitai.com"* ]]; then
-        wget "$url?token=$CIVITAI_TOKEN" --content-disposition -O "$filename"
+        if [[ -z "$filename" ]]; then
+            wget "$url?token=$CIVITAI_TOKEN" --content-disposition
+        else
+            wget "$url?token=$CIVITAI_TOKEN" --content-disposition -O "$filename"
+        fi
     else
-        wget "$url" --content-disposition -O "$filename"
+        if [[ -z "$filename" ]]; then
+            wget "$url" --content-disposition
+        else
+            wget "$url" --content-disposition -O "$filename"
+        fi
     fi
 }
+
 
 # Function to clone Git repositories
 clone_repo() {
@@ -115,6 +125,7 @@ fetch_file "https://huggingface.co/Acly/Omni-SR/resolve/main/OmniSR_X4_DIV2K.saf
 fetch_file "https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/ip-adapter_sdxl_vit-h.safetensors" "$IPADAPTER_DIR" "ip-adapter_sdxl_vit-h.safetensors"
 
 # Download LORA models
+fetch_file "https://civitai.com/api/download/models/1144036" "$LORAS_DIR"
 fetch_file "https://huggingface.co/ByteDance/Hyper-SD/resolve/main/Hyper-SDXL-8steps-CFG-lora.safetensors" "$LORAS_DIR" "Hyper-SDXL-8steps-CFG-lora.safetensors"
 fetch_file "https://huggingface.co/ByteDance/Hyper-SD/resolve/main/Hyper-SDXL-8steps-lora.safetensors" "$LORAS_DIR" "Hyper-SDXL-8steps-lora.safetensors"
 
@@ -122,6 +133,9 @@ fetch_file "https://huggingface.co/ByteDance/Hyper-SD/resolve/main/Hyper-SDXL-8s
 fetch_file "https://huggingface.co/lllyasviel/fooocus_inpaint/resolve/main/fooocus_inpaint_head.pth" "$INPAINT_DIR" "fooocus_inpaint_head.pth"
 fetch_file "https://huggingface.co/lllyasviel/fooocus_inpaint/resolve/main/inpaint_v26.fooocus.patch" "$INPAINT_DIR" "inpaint_v26.fooocus.patch"
 fetch_file "https://huggingface.co/Acly/MAT/resolve/main/MAT_Places512_G_fp16.safetensors" "$INPAINT_DIR" "MAT_Places512_G_fp16.safetensors"
+
+# Download VAE
+fetch_file "https://civitai.com/api/download/models/1373880" "$VAE_DIR"
 
 cd $COMFYUI_DIR
 git pull
