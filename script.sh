@@ -20,6 +20,7 @@ INPAINT_DIR=${MODELS_DIR}/inpaint
 IPADAPTER_DIR=${MODELS_DIR}/ipadapter
 LORAS_DIR=${MODELS_DIR}/loras
 VAE_DIR=${MODELS_DIR}/vae
+EMBEDDINGS_DIR=${MODELS_DIR}/embeddings
 
 # Ensure directories exist
 mkdir -p "$CHECKPOINTS_DIR" "$UPSCALE_MODELS_DIR" "$CLIP_VISION_DIR" \
@@ -137,6 +138,10 @@ fetch_file "https://huggingface.co/Acly/MAT/resolve/main/MAT_Places512_G_fp16.sa
 
 # Download VAE
 fetch_file "https://civitai.com/api/download/models/1373880" "$VAE_DIR"
+
+# Download Embeddings
+fetch_file "https://civitai.com/api/download/models/1470451" "$EMBEDDINGS_DIR"
+fetch_file "https://civitai.com/api/download/models/1591915" "$EMBEDDINGS_DIR"
 
 cd $COMFYUI_DIR
 git pull
