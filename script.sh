@@ -67,7 +67,7 @@ clone_repo() {
 }
 
 # Install necessary packages
-install_packages
+# install_packages
 
 # Download model checkpoints from environment variables
 echo "Downloading model checkpoints..."
