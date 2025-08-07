@@ -120,8 +120,23 @@ cd -
 # echo "Downloading Upscale Models..."
 # fetch_file "https://huggingface.co/Phips/4xRealWebPhoto_v4_dat2/resolve/main/4xRealWebPhoto_v4_dat2.safetensors" "$UPSCALE_MODELS_DIR" "4xRealWebPhoto_v4_dat2.safetensors"
 
+echo "Compiling SageAttention..."
+
+cd ${WORKSPACE}
+git clone https://github.com/thu-ml/SageAttention.git
+cd SageAttention
+export EXT_PARALLEL=4
+export NVCC_APPEND_FLAGS="--threads 8"
+export MAX_JOBS=32
+python setup.py install
+
+echo "Updating ComfyUI..."
+cd $COMFYUI_DIR
+git pull
+
 echo "Creating Extra Model Paths YAML file..."
 
+cd $COMFYUI_DIR
 cat <<EOF > "$EXTRA_MODEL_PATHS_FILENAME"
 comfyui:
   base_path: /data/ComfyUI
@@ -141,14 +156,5 @@ comfyui:
   text_encoders: models/text_encoders/
 EOF
 
-echo "Compiling "SageAttention..."
-
-cd ${WORKSPACE}
-git clone https://github.com/thu-ml/SageAttention.git
-cd SageAttention
-export EXT_PARALLEL=4
-export NVCC_APPEND_FLAGS="--threads 8"
-export MAX_JOBS=32
-python setup.py install
 
 echo "Setup completed successfully!"
