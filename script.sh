@@ -9,7 +9,8 @@ source /venv/main/bin/activate
 
 # Define directories
 COMFYUI_DIR=${WORKSPACE}/ComfyUI
-MODELS_DIR=${COMFYUI_DIR}/models
+DATA_DIR=/data
+MODELS_DIR=${DATA_DIR}/models
 CUSTOM_NODES_DIR=${COMFYUI_DIR}/custom_nodes
 
 # Define subdirectories
