@@ -12,6 +12,7 @@ COMFYUI_DIR=${WORKSPACE}/ComfyUI
 DATA_DIR=/data/ComfyUI
 MODELS_DIR=${DATA_DIR}/models
 CUSTOM_NODES_DIR=${COMFYUI_DIR}/custom_nodes
+EXTRA_MODEL_PATHS_FILENAME=extra_model_paths.yaml
 
 # Define subdirectories
 CHECKPOINTS_DIR=${MODELS_DIR}/checkpoints
@@ -83,11 +84,11 @@ clone_repo "https://github.com/cubiq/ComfyUI_essentials.git" "$CUSTOM_NODES_DIR"
 clone_repo "https://github.com/city96/ComfyUI-GGUF.git" "$CUSTOM_NODES_DIR"
 cd ComfyUI-GGUF
 pip install --upgrade gguf
-cd ..
+cd -
 clone_repo "https://github.com/kijai/ComfyUI-KJNodes.git" "$CUSTOM_NODES_DIR"
 cd ComfyUI-KJNodes
 pip install -r requirements.txt
-cd ..
+cd -
 
 # echo "Downloading models..."
 # # Download Diffusion Models
@@ -119,23 +120,26 @@ cd ..
 # echo "Downloading Upscale Models..."
 # fetch_file "https://huggingface.co/Phips/4xRealWebPhoto_v4_dat2/resolve/main/4xRealWebPhoto_v4_dat2.safetensors" "$UPSCALE_MODELS_DIR" "4xRealWebPhoto_v4_dat2.safetensors"
 
-# comfyui:
-#     base_path: path/to/comfyui/
-#     # You can use is_default to mark that these folders should be listed first, and used as the default dirs for eg downloads
-#     is_default: true
-#     checkpoints: models/checkpoints/
-#     clip: models/clip/
-#     clip_vision: models/clip_vision/
-#     configs: models/configs/
-#     controlnet: models/controlnet/
-#     diffusion_models: |
-#                  models/diffusion_models
-#                  models/unet
-#     embeddings: models/embeddings/
-#     loras: models/loras/
-#     upscale_models: models/upscale_models/
-#     vae: models/vae/
-#     text_encoders: models/text_encoders/
+echo "Creating Extra Model Paths YAML file..."
+
+cat <<EOF > "$EXTRA_MODEL_PATHS_FILENAME"
+comfyui:
+  base_path: /data/ComfyUI
+  is_default: true
+  checkpoints: models/checkpoints/
+  clip: models/clip/
+  clip_vision: models/clip_vision/
+  configs: models/configs/
+  controlnet: models/controlnet/
+  diffusion_models: |
+    models/diffusion_models
+    models/unet
+  embeddings: models/embeddings/
+  loras: models/loras/
+  upscale_models: models/upscale_models/
+  vae: models/vae/
+  text_encoders: models/text_encoders/
+EOF
 
 echo "Compiling "SageAttention..."
 
