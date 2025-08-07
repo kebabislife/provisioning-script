@@ -119,5 +119,32 @@ cd ..
 # echo "Downloading Upscale Models..."
 # fetch_file "https://huggingface.co/Phips/4xRealWebPhoto_v4_dat2/resolve/main/4xRealWebPhoto_v4_dat2.safetensors" "$UPSCALE_MODELS_DIR" "4xRealWebPhoto_v4_dat2.safetensors"
 
+# comfyui:
+#     base_path: path/to/comfyui/
+#     # You can use is_default to mark that these folders should be listed first, and used as the default dirs for eg downloads
+#     is_default: true
+#     checkpoints: models/checkpoints/
+#     clip: models/clip/
+#     clip_vision: models/clip_vision/
+#     configs: models/configs/
+#     controlnet: models/controlnet/
+#     diffusion_models: |
+#                  models/diffusion_models
+#                  models/unet
+#     embeddings: models/embeddings/
+#     loras: models/loras/
+#     upscale_models: models/upscale_models/
+#     vae: models/vae/
+#     text_encoders: models/text_encoders/
+
+echo "Compiling "SageAttention..."
+
+cd ${WORKSPACE}
+git clone https://github.com/thu-ml/SageAttention.git
+cd SageAttention
+export EXT_PARALLEL=4
+export NVCC_APPEND_FLAGS="--threads 8"
+export MAX_JOBS=32
+python setup.py install
 
 echo "Setup completed successfully!"
