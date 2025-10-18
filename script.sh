@@ -96,6 +96,8 @@ cd -
 # # fetch_file "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors" "$DIFFUSION_MODELS_DIR" "wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors"
 # fetch_file "https://huggingface.co/city96/Qwen-Image-gguf/resolve/main/qwen-image-Q8_0.gguf" "$DIFFUSION_MODELS_DIR" "qwen-image-Q8_0.gguf"
 # fetch_file "https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/resolve/main/LowNoise/Wan2.2-T2V-A14B-LowNoise-Q8_0.gguf" "$DIFFUSION_MODELS_DIR" "Wan2.2-T2V-A14B-LowNoise-Q8_0.gguf"
+fetch_file "https://huggingface.co/FX-FeiHou/wan2.2-Remix/resolve/main/NSFW/Wan2.2_Remix_NSFW_i2v_14b_low_lighting_v0.8.safetensors" "$CHECKPOINTS_DIR" "Wan2.2_Remix_NSFW_i2v_14b_low_lighting_v0.8"
+fetch_file "https://huggingface.co/FX-FeiHou/wan2.2-Remix/resolve/main/NSFW/Wan2.2_Remix_NSFW_i2v_14b_high_lighting_v0.8.safetensors" "$CHECKPOINTS_DIR" "Wan2.2_Remix_NSFW_i2v_14b_high_lighting_v0.8"
 
 # # Download LORA models
 # # fetch_file "https://huggingface.co/ByteDance/Hyper-SD/resolve/main/Hyper-SDXL-8steps-CFG-lora.safetensors" "$LORAS_DIR" "Hyper-SDXL-8steps-CFG-lora.safetensors"
@@ -116,23 +118,29 @@ cd -
 # # fetch_file "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/text_encoders/umt5_xxl_fp16.safetensors" "$TEXT_ENCODERS_DIR" "umt5_xxl_fp16.safetensors"
 # fetch_file "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors" "$TEXT_ENCODERS_DIR" "qwen_2.5_vl_7b_fp8_scaled.safetensors"
 # fetch_file "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors" "$TEXT_ENCODERS_DIR" "umt5_xxl_fp8_e4m3fn_scaled.safetensors"
+fetch_file "https://huggingface.co/NSFW-API/NSFW-Wan-UMT5-XXL/resolve/main/nsfw_wan_umt5-xxl_bf16.safetensors" "$TEXT_ENCODERS_DIR" "nsfw_wan_umt5-xxl_bf16.safetensors"
 
 # echo "Downloading Upscale Models..."
 # fetch_file "https://huggingface.co/Phips/4xRealWebPhoto_v4_dat2/resolve/main/4xRealWebPhoto_v4_dat2.safetensors" "$UPSCALE_MODELS_DIR" "4xRealWebPhoto_v4_dat2.safetensors"
 
-echo "Compiling SageAttention..."
 
-cd ${WORKSPACE}
-git clone https://github.com/thu-ml/SageAttention.git
-cd SageAttention
-export EXT_PARALLEL=4
-export NVCC_APPEND_FLAGS="--threads 8"
-export MAX_JOBS=32
-python setup.py install
+sage_at() {
+    echo "Compiling SageAttention..."
+    cd ${WORKSPACE}
+    git clone https://github.com/thu-ml/SageAttention.git
+    cd SageAttention
+    export EXT_PARALLEL=4
+    export NVCC_APPEND_FLAGS="--threads 8"
+    export MAX_JOBS=32
+    python setup.py install
+}
+
+# sage_at
 
 echo "Updating ComfyUI..."
 cd $COMFYUI_DIR
 git pull
+pip install -r requirements.txt
 
 echo "Creating Extra Model Paths YAML file..."
 
