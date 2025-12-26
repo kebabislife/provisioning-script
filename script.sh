@@ -96,8 +96,9 @@ cd -
 # # fetch_file "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors" "$DIFFUSION_MODELS_DIR" "wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors"
 # fetch_file "https://huggingface.co/city96/Qwen-Image-gguf/resolve/main/qwen-image-Q8_0.gguf" "$DIFFUSION_MODELS_DIR" "qwen-image-Q8_0.gguf"
 # fetch_file "https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/resolve/main/LowNoise/Wan2.2-T2V-A14B-LowNoise-Q8_0.gguf" "$DIFFUSION_MODELS_DIR" "Wan2.2-T2V-A14B-LowNoise-Q8_0.gguf"
-fetch_file "https://huggingface.co/FX-FeiHou/wan2.2-Remix/resolve/main/NSFW/Wan2.2_Remix_NSFW_i2v_14b_low_lighting_v0.8.safetensors" "$CHECKPOINTS_DIR" "Wan2.2_Remix_NSFW_i2v_14b_low_lighting_v0.8"
-fetch_file "https://huggingface.co/FX-FeiHou/wan2.2-Remix/resolve/main/NSFW/Wan2.2_Remix_NSFW_i2v_14b_high_lighting_v0.8.safetensors" "$CHECKPOINTS_DIR" "Wan2.2_Remix_NSFW_i2v_14b_high_lighting_v0.8"
+# fetch_file "https://huggingface.co/FX-FeiHou/wan2.2-Remix/resolve/main/NSFW/Wan2.2_Remix_NSFW_i2v_14b_low_lighting_v0.8.safetensors" "$CHECKPOINTS_DIR" "Wan2.2_Remix_NSFW_i2v_14b_low_lighting_v0.8"
+# fetch_file "https://huggingface.co/FX-FeiHou/wan2.2-Remix/resolve/main/NSFW/Wan2.2_Remix_NSFW_i2v_14b_high_lighting_v0.8.safetensors" "$CHECKPOINTS_DIR" "Wan2.2_Remix_NSFW_i2v_14b_high_lighting_v0.8"
+fetch_file "https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/resolve/main/split_files/diffusion_models/qwen_image_edit_2511_bf16.safetensors" "$DIFFUSION_MODELS_DIR" "qwen_image_edit_2511_bf16.safetensors"
 
 # # Download LORA models
 # # fetch_file "https://huggingface.co/ByteDance/Hyper-SD/resolve/main/Hyper-SDXL-8steps-CFG-lora.safetensors" "$LORAS_DIR" "Hyper-SDXL-8steps-CFG-lora.safetensors"
@@ -105,12 +106,14 @@ fetch_file "https://huggingface.co/FX-FeiHou/wan2.2-Remix/resolve/main/NSFW/Wan2
 # fetch_file "https://huggingface.co/vrgamedevgirl84/Wan14BT2VFusioniX/resolve/main/FusionX_LoRa/Wan2.1_I2V_14B_FusionX_LoRA.safetensors" "$LORAS_DIR" "Wan2.1_I2V_14B_FusionX_LoRA.safetensors"
 # fetch_file "https://huggingface.co/lightx2v/Wan2.1-I2V-14B-480P-StepDistill-CfgDistill-Lightx2v/resolve/main/loras/Wan21_I2V_14B_lightx2v_cfg_step_distill_lora_rank64.safetensors" "$LORAS_DIR" "Wan21_I2V_14B_lightx2v_cfg_step_distill_lora_rank64.safetensors"
 # fetch_file "https://civitai.com/api/download/models/2086717" "$LORAS_DIR" "instagirl_wan_2.0.safetensors"
+fetch_file "https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning/resolve/main/Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors" "$LORAS_DIR" "Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors"
 
 # # Download VAE
 # echo "Downloading VAEs..."
 # # fetch_file "https://huggingface.co/Comfy-Org/Lumina_Image_2.0_Repackaged/resolve/main/split_files/vae/ae.safetensors" "$VAE_DIR" "ae.safetensors"
 # fetch_file "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/vae/wan_2.1_vae.safetensors" "$VAE_DIR" "wan_2.1_vae.safetensors"
 # fetch_file "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors" "$VAE_DIR" "qwen_image_vae.safetensors"
+fetch_file "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors" "$VAE_DIR" "qwen_image_vae.safetensors"
 
 # # Download Text Encoders
 # echo "Downloading Text Encoders..."
@@ -118,7 +121,8 @@ fetch_file "https://huggingface.co/FX-FeiHou/wan2.2-Remix/resolve/main/NSFW/Wan2
 # # fetch_file "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/text_encoders/umt5_xxl_fp16.safetensors" "$TEXT_ENCODERS_DIR" "umt5_xxl_fp16.safetensors"
 # fetch_file "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors" "$TEXT_ENCODERS_DIR" "qwen_2.5_vl_7b_fp8_scaled.safetensors"
 # fetch_file "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors" "$TEXT_ENCODERS_DIR" "umt5_xxl_fp8_e4m3fn_scaled.safetensors"
-fetch_file "https://huggingface.co/NSFW-API/NSFW-Wan-UMT5-XXL/resolve/main/nsfw_wan_umt5-xxl_bf16.safetensors" "$TEXT_ENCODERS_DIR" "nsfw_wan_umt5-xxl_bf16.safetensors"
+# fetch_file "https://huggingface.co/NSFW-API/NSFW-Wan-UMT5-XXL/resolve/main/nsfw_wan_umt5-xxl_bf16.safetensors" "$TEXT_ENCODERS_DIR" "nsfw_wan_umt5-xxl_bf16.safetensors"
+fetch_file "https://huggingface.co/Comfy-Org/HunyuanVideo_1.5_repackaged/resolve/main/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors" "$TEXT_ENCODERS_DIR" "qwen_2.5_vl_7b_fp8_scaled.safetensors"
 
 # echo "Downloading Upscale Models..."
 # fetch_file "https://huggingface.co/Phips/4xRealWebPhoto_v4_dat2/resolve/main/4xRealWebPhoto_v4_dat2.safetensors" "$UPSCALE_MODELS_DIR" "4xRealWebPhoto_v4_dat2.safetensors"
